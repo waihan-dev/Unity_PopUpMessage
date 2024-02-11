@@ -41,6 +41,8 @@ using PopUpMessage.Service;
 To display a notification, use one of the static methods provided by the NotificationService. Here's how to display each type of notification:
 
 #### General Notification
+![general](https://github.com/waihan-dev/Unity_PopUpMessage/assets/159563266/48623042-9909-42dd-9b74-d71a81e2a94d)
+
 ```
 NotificationService.ShowGeneral(
     "Welcome!", 
@@ -50,6 +52,8 @@ NotificationService.ShowGeneral(
 );
 ```
 #### Warning Notification
+![warning panel](https://github.com/waihan-dev/Unity_PopUpMessage/assets/159563266/1d1cf414-b516-4ef3-bfd4-2691e495b0c3)
+
 ```
 NotificationService.ShowWarning(
     "Attention Needed", 
@@ -59,6 +63,8 @@ NotificationService.ShowWarning(
 );
 ```
 #### Success Notification
+![success](https://github.com/waihan-dev/Unity_PopUpMessage/assets/159563266/b2e0e612-140c-430b-837c-d0d86a1c4c2b)
+
 ```
 NotificationService.ShowSuccess(
     "Success!", 
@@ -69,6 +75,8 @@ NotificationService.ShowSuccess(
 ```
 
 #### Error Notification
+![error](https://github.com/waihan-dev/Unity_PopUpMessage/assets/159563266/4bc1c24b-722d-4743-9b35-f38c8430750e)
+
 ```
 NotificationService.ShowError(
     "Error Encountered", 
