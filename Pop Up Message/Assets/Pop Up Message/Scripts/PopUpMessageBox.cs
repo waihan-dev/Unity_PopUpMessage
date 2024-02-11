@@ -12,6 +12,7 @@ namespace PopUpMessage.UI
         [SerializeField] private GraphicRaycaster graphicRaycaster;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Image panelImage;
+        [SerializeField] private Image notificationIcon;
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private Button actionOneButton;
@@ -38,22 +39,29 @@ namespace PopUpMessage.UI
             canvasGroup.alpha = 0f;
         }
 
-        public void Show(string title, string description, string buttonOneText, Action actionOne, string buttonTwoText, Action actionTwo, NotificationColorScheme colorScheme = null)
+        public void Show(string title, string description, string buttonOneText, Action actionOne, string buttonTwoText, Action actionTwo, NotificationColorScheme colorScheme = null, Sprite icon = null)
         {
             colorScheme ??= NotificationColorScheme.Default;
 
             // Apply color scheme
-            if(panelImage != null) panelImage.color = colorScheme.panelColor;
+            if (panelImage != null) panelImage.color = colorScheme.panelColor;
             titleText.color = colorScheme.titleColor;
             descriptionText.color = colorScheme.descriptionColor;
 
             firstButtonText.color = colorScheme.buttonTextColor;
             secondButtonText.color = colorScheme.buttonTextColor;
 
-            if(buttonOneImage != null) buttonOneImage.color = colorScheme.buttonBackgroundColor; 
-            if(buttonTwoImage != null) buttonTwoImage.color = colorScheme.buttonBackgroundColor;
+            if (buttonOneImage != null) buttonOneImage.color = colorScheme.buttonBackgroundColor;
+            if (buttonTwoImage != null) buttonTwoImage.color = colorScheme.buttonBackgroundColor;
 
-             // Apply UI scheme
+            // Set the icon
+            if (notificationIcon != null)
+            {
+                notificationIcon.gameObject.SetActive(icon != null); 
+                notificationIcon.sprite = icon; 
+            }
+
+            // Apply UI scheme
             this.titleText.text = title;
             this.descriptionText.text = description;
 
