@@ -17,6 +17,7 @@ namespace PopUpMessage.Service
                 if (prefab != null)
                 {
                     popUpMessageBox = GameObject.Instantiate(prefab);
+                    popUpMessageBox.gameObject.name = "Notification";
                 }
                 else
                 {
