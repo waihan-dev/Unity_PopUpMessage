@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,19 +11,22 @@ namespace PopUpMessage.UI
         [Header("UI Variables")]
         [SerializeField] private GraphicRaycaster graphicRaycaster;
         [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private GameObject titleHeader;
+        [SerializeField] private Image panelImage;
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private Button actionOneButton;
         [SerializeField] private Button actionTwoButton;
-        [SerializeField] private TextMeshProUGUI buttonOneText;
-        [SerializeField] private TextMeshProUGUI buttonTwoText;
+        [SerializeField] private TextMeshProUGUI firstButtonText;
+        [SerializeField] private TextMeshProUGUI secondButtonText;
         [SerializeField] private Image buttonOneImage;
         [SerializeField] private Image buttonTwoImage;
 
         [Header("Fade Duration")]
         [Range(.1f, 1f)][SerializeField] private float fadeInDuration = .3f;
         [Range(.1f, 1f)][SerializeField] private float fadeOutDuration = .3f;
+
+        [Header("UI Draggable")]
+        [SerializeField] private UIDraggable uIDraggable;
 
         void Start()
         {
@@ -36,12 +38,27 @@ namespace PopUpMessage.UI
             canvasGroup.alpha = 0f;
         }
 
-        public void Show(string title, string description, string buttonOneText, Action actionOne, string buttonTwoText, Action actionTwo)
+        public void Show(string title, string description, string buttonOneText, Action actionOne, string buttonTwoText, Action actionTwo, NotificationColorScheme colorScheme = null)
         {
+            colorScheme ??= NotificationColorScheme.Default;
+
+            // Apply color scheme
+            if(panelImage != null) panelImage.color = colorScheme.panelColor;
+            titleText.color = colorScheme.titleColor;
+            descriptionText.color = colorScheme.descriptionColor;
+
+            firstButtonText.color = colorScheme.buttonTextColor;
+            secondButtonText.color = colorScheme.buttonTextColor;
+
+            if(buttonOneImage != null) buttonOneImage.color = colorScheme.buttonBackgroundColor; 
+            if(buttonTwoImage != null) buttonTwoImage.color = colorScheme.buttonBackgroundColor;
+
+             // Apply UI scheme
             this.titleText.text = title;
             this.descriptionText.text = description;
-            SetupButton(actionOneButton, this.buttonOneText, buttonOneText, actionOne);
-            SetupButton(actionTwoButton, this.buttonTwoText, buttonTwoText, actionTwo);
+
+            SetupButton(actionOneButton, this.firstButtonText, buttonOneText, actionOne);
+            SetupButton(actionTwoButton, this.secondButtonText, buttonTwoText, actionTwo);
 
             canvasGroup.alpha = 0;
             StartCoroutine(FadeIn(fadeInDuration));
@@ -102,6 +119,7 @@ namespace PopUpMessage.UI
                 yield return null;
             }
             canvasGroup.alpha = 0f;
+            uIDraggable.ResetPosition();
         }
 
         public void HideNotification()
