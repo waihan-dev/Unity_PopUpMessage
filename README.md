@@ -22,12 +22,13 @@ Our system includes four primary types of notifications, each designed to convey
 4. WebGl
 5. and more..
 
-NOTES:
+⚠️ NOTE! :
 Does not supported VR mode yet.
 
 ## Getting Started
 ### Step 1: Import the Notification System
 Ensure you have cloned or downloaded the PopUp Notification System into your Unity project's Assets folder.
+
 ⚠️ NOTE! : No need to add any prefab to the scene
 
 ### Step 2: Configure the Notification Service
