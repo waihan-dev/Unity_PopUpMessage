@@ -29,6 +29,8 @@ namespace PopUpMessage.UI
         [Header("UI Draggable")]
         [SerializeField] private UIDraggable uIDraggable;
 
+        private readonly int maxTextLength = 255 ;
+
         void Start()
         {
             Init();
@@ -63,7 +65,7 @@ namespace PopUpMessage.UI
 
             // Apply UI scheme
             this.titleText.text = title;
-            this.descriptionText.text = description;
+            this.descriptionText.text = (description.Length > maxTextLength) ? description.Substring (0, maxTextLength) + "..." : description ;
 
             SetupButton(actionOneButton, this.firstButtonText, buttonOneText, actionOne);
             SetupButton(actionTwoButton, this.secondButtonText, buttonTwoText, actionTwo);
