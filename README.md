@@ -44,11 +44,15 @@ To display a notification, use one of the static methods provided by the Notific
 ![general](https://github.com/waihan-dev/Unity_PopUpMessage/assets/159563266/48623042-9909-42dd-9b74-d71a81e2a94d)
 
 ```
+ [TextArea (5, 20)]public string longText ;
+
 NotificationService.ShowGeneral(
-    "Welcome!", 
-    "Thank you for using our application.", 
-    "OK", 
-    () => Debug.Log("General notification confirmed.")
+    "Notice",
+     longText,
+    "Action", 
+    () => Debug.Log("General notification confirmed."),
+    "Close",
+    null
 );
 ```
 #### Warning Notification
@@ -56,10 +60,12 @@ NotificationService.ShowGeneral(
 
 ```
 NotificationService.ShowWarning(
-    "Attention Needed", 
-    "Please check your settings.", 
-    "Review", 
-    () => Debug.Log("Warning notification confirmed.")
+    "Warning", 
+    "Alert world!",
+    "Close", 
+    null,
+    "",
+    null
 );
 ```
 #### Success Notification
@@ -68,9 +74,11 @@ NotificationService.ShowWarning(
 ```
 NotificationService.ShowSuccess(
     "Success!", 
-    "Your operation was completed successfully.", 
-    "Great!", 
-    () => Debug.Log("Success notification confirmed.")
+    "Welcome to world!", 
+    "Success", 
+    () => Debug.Log("Success notification confirmed."),
+    "Close",
+    null
 );
 ```
 
@@ -79,9 +87,11 @@ NotificationService.ShowSuccess(
 
 ```
 NotificationService.ShowError(
-    "Error Encountered", 
-    "An error has occurred. Please try again.", 
-    "Retry", 
-    () => Debug.Log("Error notification confirmed.")
+    "Error", 
+    "Danger world!", 
+    "Error", 
+    null,
+    "Close",
+    null
 );
 ```
