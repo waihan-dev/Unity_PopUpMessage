@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class Demo : MonoBehaviour
 {
+    [TextArea (5, 20)]public string longText ;
     public void Button1()
     {
         NotificationService.ShowGeneral(
             "Notice",
-            "Hello world!",
+            longText,
             "Action",
             () => ChangeScene(),
             "Close",
