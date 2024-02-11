@@ -15,6 +15,12 @@ Our system includes four primary types of notifications, each designed to convey
 3. Success Notifications - Celebrate achievements or successful operations. 
 4. Error Notifications - Alert users to errors or problems that need attention.
 
+## Unity Version
+2022.3.12 or higher
+
+## Render pipeline compatibility
+URP
+
 ## Supporting Platforms
 1. Standalone Builds
 2. Android
