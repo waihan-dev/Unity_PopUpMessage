@@ -45,18 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1346a0879a4d3a84e9132ff1cb658ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 38127722635965374}
   graphicRaycaster: {fileID: 3110172149128417586}
   canvasGroup: {fileID: 5403998611008605599}
-  titleHeader: {fileID: 106422136078418213}
+  panelImage: {fileID: 0}
   titleText: {fileID: 437781732225130584}
   descriptionText: {fileID: 999975757949839917}
   actionOneButton: {fileID: 2089032104699117721}
   actionTwoButton: {fileID: 9027803506712165620}
-  buttonOneText: {fileID: 6009263630856238210}
-  buttonTwoText: {fileID: 2291519325352848478}
+  firstButtonText: {fileID: 6009263630856238210}
+  secondButtonText: {fileID: 2291519325352848478}
   buttonOneImage: {fileID: 2470327596737379893}
   buttonTwoImage: {fileID: 1450639853585317964}
+  fadeInDuration: 0.3
+  fadeOutDuration: 0.3
+  uIDraggable: {fileID: 8362032201620285240}
 --- !u!1 &70128252816056618
 GameObject:
   m_ObjectHideFlags: 0

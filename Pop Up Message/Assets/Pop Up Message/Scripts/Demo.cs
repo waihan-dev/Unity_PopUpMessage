@@ -7,7 +7,7 @@ public class Demo : MonoBehaviour
     public void Button1()
     {
         NotificationService.ShowGeneral(
-            "Success",
+            "Notice",
             "Hello world!",
             "Action",
             () => ChangeScene(),
@@ -24,6 +24,30 @@ public class Demo : MonoBehaviour
             "Close",
             null,
             "",
+            null
+        );
+    }
+
+    public void Button3()
+    {
+        NotificationService.ShowSuccess(
+            "Success",
+            "Welcome to world!",
+            "Success",
+            () => ChangeScene(),
+            "Close",
+            null
+        );
+    }
+
+    public void Button4()
+    {
+        NotificationService.ShowError(
+            "Error",
+            "Danger world!",
+            "Error",
+            null,
+            "Close",
             null
         );
     }
