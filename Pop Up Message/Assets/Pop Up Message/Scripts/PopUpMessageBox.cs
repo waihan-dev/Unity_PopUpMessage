@@ -136,11 +136,6 @@ namespace PopUpMessage.UI
         {
             StartCoroutine(FadeOut(fadeOutDuration));
         }
-
-        private void OnDestroy()
-        {
-
-        }
     }
 
 }
